@@ -1,5 +1,13 @@
+17.38
+--> added a fix for Essence of the Red by zelazrgn
+
 17.37
 --> Added Sunder count for raid
+--> Some Bosses rework
+--> fixed Onyxia on everlook
+--> addded Execute multiplier (need test)
+--> changed to 32 buffs
+--> Adedd ruRU support
 
 17.22
 
