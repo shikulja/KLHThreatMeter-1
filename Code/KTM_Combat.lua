@@ -17,6 +17,7 @@
 local mod = klhtm
 local me = {}
 mod.combat = me
+local lastSunderTime = 0
 
 --[[
 KTM_Combat.lua

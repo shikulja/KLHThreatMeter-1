@@ -159,12 +159,17 @@ klhtm.string.data["enUS"] =
 	{
 		["speech"] = 
 		{
+			["onyxiaphase1"] = "How fortuitous. Usually, I must leave my lair in order to feed.",
+			["onyxiaphase2"] = "This meaningless exertion bores me. I'll incinerate you all from above!",
 			["razorphase2"] = "flee as the controlling power of the orb is drained.",
 			["onyxiaphase3"] = "It seems you'll need another lesson",
 			["thekalphase2"] = "fill me with your RAGE",
 			["rajaxxfinal"] = "Impudent fool! I will kill you myself!",
 			["azuregosport"] = "Come, little ones",
+			["nefphase1"] = "Well done, my minions. The mortals' courage begins to wane! Now, let's see how they contend with the true Lord of Blackrock Spire!",
 			["nefphase2"] = "Burn, you wretches! Burn!",
+			["razargor1"] = "I'm free! That device shall never torment me again!",
+			["broodlord1"] = "None of your kind should be here",
 			["thad1"] = "EAT YOUR BONES",
 			["thad2"] = "BREAK YOU!",
 			["thad3"] = "KILL!",
@@ -206,6 +211,9 @@ klhtm.string.data["enUS"] =
 			mark2 = "Mark of Korth'azz",
 			mark3 = "Mark of Mograine",
 			mark4 = "Mark of Zeliek",
+			
+			-- Onyxia fireball (presumably same as mage)
+			fireball = "Fireball",
 		}
 	},
 	["misc"] = 
@@ -252,8 +260,8 @@ klhtm.string.data["enUS"] =
 		["title"] = {
 			["text"] = {
 				-- the window titles
-				["long"] = "KTM JudgeS",	-- don't need to localise these
-				["short"] = "KTM -JS",
+				["long"] = "KTM %d.%d",	-- don't need to localise these
+				["short"] = "KTM",
 				
 			},
 			["buttonshort"] = {

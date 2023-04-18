@@ -45,58 +45,30 @@ function klhtm:ResetRaidThreat()
         mod.table.resetraidthreat()
 end
 
-
 me.myevents = { "CHAT_MSG_MONSTER_EMOTE", "CHAT_MSG_MONSTER_YELL", "CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE", "CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE", "CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS", "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "CHAT_MSG_COMBAT_HOSTILE_DEATH"}
 
 me.onevent = function()
 
-	--Razorgore
-	if event == "CHAT_MSG_MONSTER_YELL" then
-		if arg2 == "Razorgore the Untamed" and arg1 == "I'm free! That device shall never torment me again!" then
-			mod.target.automastertarget(arg2)
+	if event == "CHAT_MSG_MONSTER_EMOTE" then
+		
+		if string.find(arg1, mod.string.get("boss", "speech", "razorphase2")) then
+			
+			-- clear threat when phase 2 starts
 			mod.table.resetraidthreat()
+			
+			-- set the master target to Razorgore, but only if a localised version of him exists.
+			local bossname = mod.string.get("boss", "name", "razorgore")
+			
+			if mod.string.unlocalise("boss", "name", bossname) then
+				mod.target.automastertarget(bossname)
+			end
+			
 			return
 		end
 	
-		--Vaelastrasz the Corrupt
-		if arg2 == "Vaelastrasz the Corrupt" and arg1 == "Too late, friends! Nefarius' corruption has taken hold...I cannot...control myself." then
-			mod.target.automastertarget(arg2)
-			mod.table.resetraidthreat()
-			return
-		end
-		
-		--Broodlord Lashlayer
-		if arg2 == "Broodlord Lashlayer" and arg1 == "None of your kind should be here! You've doomed only yourselves!" then
-			mod.target.automastertarget(arg2)
-			mod.table.resetraidthreat()
-			return
-		end
-		
-		--Onyxia P1 and P2
-		if arg2 == "Onyxia" then
-			if arg1 == "How fortuitous. Usually, I must leave my lair to feed." then
-				mod.target.automastertarget(arg2)
-				mod.table.resetraidthreat()
-			elseif arg1 == "It seems you'll need another lesson, mortals!" then
-				mod.table.resetraidthreat()
-			end
-			return
-		end
-		
-		-- Nef Phase 2
-		if arg2 == "Nefarian" and arg1 == "Well done, my minions. The mortals' courage begins to wane! Now, let's see how they contend with the true Lord of Blackrock Spire!" then
-			mod.target.automastertarget(arg2)
-			mod.table.resetraidthreat()
-			return
-		end
-		
-		-- Azuregos teleport
-		if arg2 == "Azuregos" and arg1 == "Come, little ones. Face me!" then
-			mod.table.resetraidthreat()
-			return
-		end
-		
-		-- Thad Phase 2
+	elseif event == "CHAT_MSG_MONSTER_YELL" then
+	
+                -- Thad Phase 2
 		if string.find(arg1, mod.string.get("boss", "speech", "thad1")) or string.find(arg1, mod.string.get("boss", "speech", "thad2")) or string.find(arg1, mod.string.get("boss", "speech", "thad3")) then
 				
 			-- reset threat in phase 2
@@ -110,6 +82,51 @@ me.onevent = function()
 				
 			mod.target.automastertarget(arg2)
 				
+			return
+		end
+		
+		--Onyxia Phase 1
+		if string.find(arg1, mod.string.get("boss", "speech", "onyxiaphase1")) then
+				mod.target.automastertarget(arg2)
+				mod.table.resetraidthreat()
+			return
+		end
+		-- Ony Phase 3
+		if string.find(arg1, mod.string.get("boss", "speech", "onyxiaphase3")) then
+		
+			-- reset threat in phase 2
+			mod.table.resetraidthreat()
+			
+			return
+		end
+		
+		-- Nef Phase 2
+		if string.find(arg1, mod.string.get("boss", "speech", "nefphase2")) then
+			-- reset threat in phase 2
+			mod.table.resetraidthreat()
+			-- boss name is given by the arg2
+			mod.target.automastertarget(arg2)
+			return
+		end
+		
+		 --Razorgore
+		if string.find(arg1, mod.string.get("boss", "speech", "razargor1")) then
+			mod.target.automastertarget(arg2)
+			mod.table.resetraidthreat()
+			return
+		end
+		
+		--Vaelastrasz the Corrupt
+		--if arg2 == "Vaelastrasz the Corrupt" and arg1 == "Too late, friends! Nefarius' corruption has taken hold...I cannot...control myself." then
+		--	mod.target.automastertarget(arg2)
+		--	mod.table.resetraidthreat()
+		--	return
+		--end
+				
+		--Broodlord Lashlayer
+		if string.find(arg1, mod.string.get("boss", "speech", "broodlord1")) then
+			mod.target.automastertarget(arg2)
+			mod.table.resetraidthreat()
 			return
 		end
 		
@@ -137,6 +154,12 @@ me.onevent = function()
 			return
 		end
 			
+		-- Azuregos Port
+		if string.find(arg1, mod.string.get("boss", "speech", "azuregosport")) then
+			
+			mod.table.resetraidthreat()
+			return
+		end	
 		-- KT Phase 2
 		if string.find(arg1, mod.string.get("boss", "speech", "ktphase2")) then
 				
@@ -149,7 +172,6 @@ me.onevent = function()
 			return
 		end
 
-	
 	elseif event == "CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS" then
 		
 		-- 1) Scan for casting pattern

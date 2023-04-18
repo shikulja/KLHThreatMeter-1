@@ -234,6 +234,11 @@ me.spells =
 		class = "item",
 		threat = 0,
 	},
+	["execute"] = 
+	{	
+		class = "warrior",
+		multiplier = 1.25,
+	},
 }
 
 -- These are the DPS modifiers for ranks of rockbiter. Whenever a hit lands with a rockbiter weapon, the added threat
@@ -274,7 +279,7 @@ me.isbuffpresent = function(texture)
 	local x
 	local bufftexture
 	
-	for x = 1, 16 do
+	for x = 1, 32 do
 		bufftexture = UnitBuff("player", x)
 		
 		if bufftexture == nil then

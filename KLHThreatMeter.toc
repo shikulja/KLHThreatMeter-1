@@ -2,13 +2,15 @@
 ## Title: |cff7fff7fKTM - JudgementS|r
 ## Author: Kenco@Perenolde, edited by Plask, eduted by Ainy
 ## Notes: A Threat Meter with sunders counter
+## Notes-ruRU: Измеритель угрозы
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
-## Version: 17.36
+## Version: 17.38
 ## SavedVariablesPerCharacter: KLHTM_SavedVariables
 Code\KTM_Core.lua
 Code\Localisation\KTM_Localisation.lua
 Code\Localisation\KTM_enUS.lua
+Code\Localisation\KTM_ruRU.lua
 Code\Localisation\KTM_deDE.lua
 Code\Localisation\KTM_frFR.lua
 Code\Localisation\KTM_zhCN.lua
