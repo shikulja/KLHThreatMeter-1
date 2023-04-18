@@ -17,7 +17,7 @@ Updated KLHThreatMeter for Everlook
 
 ## Installation Instructions
 
-1. Download 
+1. Download from https://github.com/laytya/KLHThreatMeter/releases
 2. Unzip the file.
 3. Delete the current `KLHThreatMeter` folder inside `Interface/Addons` if it exists.
 4. Move `KLHThreatMeter` into `Interface/Addons`
