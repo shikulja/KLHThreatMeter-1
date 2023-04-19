@@ -8,7 +8,7 @@
 
 -- Add the module to the tree
 local mod = klhtm
-local me = {}
+local me, _ = {}
 mod.regex = me
 
 --[[
@@ -476,11 +476,10 @@ mod.regex.test()
 Checks that the parsers created from print format strings are working correctly, over a range of tough strings.
 Will print out the results.
 ]]
+local strings = {"%3$s vous fait gagner %1$d %2$s.", "Votre %4$s inflige %2$d points de degats de %3$s a %1$s.", 
+			   "Vous utilisez %s sur votre %s."}
 me.test = function()
 
-	strings = {"%3$s vous fait gagner %1$d %2$s.", "Votre %4$s inflige %2$d points de degats de %3$s a %1$s.", 
-			   "Vous utilisez %s sur votre %s."}
-			
 	for x = 1, table.getn(strings) do
 		if me.testformatstring(strings[x]) == nil then
 			mod.out.print(string.format("test failed on string %d, '%s'.", x, strings[x]))

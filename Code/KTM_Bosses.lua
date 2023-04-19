@@ -293,7 +293,7 @@ me.onupdate = function()
 	if (me.isspellreportingactive == true) and (me.istrackingspells == true) and mod.target.mastertarget then
 		
 		-- 1) find mt
-		local x, newtarget
+		local x, newtarget, name
 		
 		for x = 1, 40 do
 			name = UnitName("raid" .. x .. "target")

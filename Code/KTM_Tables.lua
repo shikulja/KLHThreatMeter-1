@@ -16,7 +16,7 @@
 --! guiself:	mydata, resetmytable, 
 
 local mod = klhtm
-local me = { }
+local me, _ = { }
 mod.table = me
 
 --! This variable is referenced by these modules: alert, combat, guiself, 

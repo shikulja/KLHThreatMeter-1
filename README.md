@@ -3,6 +3,10 @@
 Updated KLHThreatMeter for Everlook
 
 # Changes
+17.39
+- added KTM_PetMod
+- some small fixes
+- added minimap button
 
 17.38
 - added a fix for Essence of the Red by zelazrgn

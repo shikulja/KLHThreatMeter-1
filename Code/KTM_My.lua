@@ -14,7 +14,7 @@
 --! table:	class, 
 
 local mod = klhtm
-local me = { }
+local me, _ = { }
 mod.my = me
 
 --[[ 
@@ -35,7 +35,7 @@ me.feigndeathresisttime = 0 -- return value of GetTime()
 me.lastfadevalue = 0
 
 -- mod.my.class is the unlocalised lower case representation. e.g. "warrior", "rogue", no matter what locale you are in.
-_, me.class = UnitClass("player")
+me.lclass, me.class = UnitClass("player")
 --! This variable is referenced by these modules: combat, data, table, 
 me.class = string.lower(me.class)
 
@@ -362,8 +362,8 @@ me.testthreat = function()
 
 	-- 3) Print out threat for specific abilities
 	if me.class == "priest" then
-		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), UnitClass("player"), mod.string.get("talent", "silentresolve"), 1.0 + me.mods.priest.silentresolve))
-		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), UnitClass("player"), SPELL_SCHOOL5_CAP, me.mods.priest.shadowaffinity))
+		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), me.lclass, mod.string.get("talent", "silentresolve"), 1.0 + me.mods.priest.silentresolve))
+		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), me.lclass, SPELL_SCHOOL5_CAP, me.mods.priest.shadowaffinity))
 	
 	elseif me.class == "warlock" then
 		mod.out.print(string.format(mod.string.get("print", "data", "setactive"), mod.string.get("sets", "nemesis"), 8, mod.out.booltostring(me.mods.warlock.nemesis)))
@@ -371,19 +371,19 @@ me.testthreat = function()
 	
 	elseif me.class == "mage" then
 		mod.out.print(string.format(mod.string.get("print", "data", "setactive"), mod.string.get("sets", "netherwind"), 3, mod.out.booltostring(me.mods.mage.netherwind)))
-		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), UnitClass("player"), SPELL_SCHOOL6_CAP, 1.0 + me.mods.mage.arcanethreat))
-		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), UnitClass("player"), SPELL_SCHOOL4_CAP, 1.0 + me.mods.mage.frostthreat))
-		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), UnitClass("player"), SPELL_SCHOOL2_CAP, 1.0 + me.mods.mage.firethreat))
+		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), me.lclass, SPELL_SCHOOL6_CAP, 1.0 + me.mods.mage.arcanethreat))
+		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), me.lclass, SPELL_SCHOOL4_CAP, 1.0 + me.mods.mage.frostthreat))
+		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), me.lclass, SPELL_SCHOOL2_CAP, 1.0 + me.mods.mage.firethreat))
 		
 	elseif me.class == "paladin" then
-		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), UnitClass("player"), mod.string.get("print", "data", "holyspell"), me.mods.paladin.righteousfury))
+		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), me.lclass, mod.string.get("print", "data", "holyspell"), me.mods.paladin.righteousfury))
 		mod.out.print(string.format(mod.string.get("print", "data", "healing"), mod.data.threatconstants.healing * me.mods.paladin.healing))
 		
 	elseif me.class == "warrior" then
-		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), UnitClass("player"), mod.string.get("spell", "sunder"), me.mods.warrior.sunderthreat))
+		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), me.lclass, mod.string.get("spell", "sunder"), me.mods.warrior.sunderthreat))
 		
 	elseif me.class == "druid" then
-		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), UnitClass("player"), mod.string.get("talent", "tranquility"), me.mods.druid.tranquilitythreat))
+		mod.out.print(string.format(mod.string.get("print", "data", "multiplier"), me.lclass, mod.string.get("talent", "tranquility"), me.mods.druid.tranquilitythreat))
 		
 	elseif me.class == "shaman" then
 		mod.out.print(string.format(mod.string.get("print", "data", "healing"), mod.data.threatconstants.healing * me.mods.shaman.healing))
@@ -1054,7 +1054,7 @@ me.redoglobalthreat = function()
 	
 	-- Rogue
 	elseif mod.my.class == "rogue" then
-		me.modifyglobalthreat(-0.29, UnitClass("player"))
+		me.modifyglobalthreat(-0.29, me.lclass)
 		
 	-- Arcanist
 	elseif (mod.my.class == "mage") and (me.mods.mage.arcanist == true) then

@@ -1,11 +1,11 @@
 ## Interface: 11200
-## Title: |cff7fff7fKTM - JudgementS|r
-## Author: Kenco@Perenolde, edited by Plask, eduted by Ainy
+## Title: KLHThreatMeter |cff1fff1fLaYt|r edition
+## Author: Kenco@Perenolde, edited by Plask, eduted by LaYt
 ## Notes: A Threat Meter with sunders counter
 ## Notes-ruRU: Измеритель угрозы
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
-## Version: 17.38
+## Version: 17.39
 ## SavedVariablesPerCharacter: KLHTM_SavedVariables
 Code\KTM_Core.lua
 Code\Localisation\KTM_Localisation.lua
@@ -32,6 +32,7 @@ Code\KTM_Tables.lua
 Code\KTM_Regex.lua
 Code\KTM_Unit.lua
 Code\KTM_UserMods.lua
+Code\KTM_PetMod.lua
 Code\GUI\KTM_Gui.lua
 Code\GUI\KTM_SelfGui.lua
 Code\GUI\KTM_RaidGui.lua

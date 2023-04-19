@@ -11,7 +11,7 @@
 --! net:	messagein, 
 
 local mod = klhtm
-local me = { }
+local me, _ = { }
 mod.netin = me
 
 me.myevents = {"CHAT_MSG_ADDON" }
@@ -106,6 +106,8 @@ end
 each function is called with 1) author, 2) message, 3) index of first character after the command (probably a space)
 they should return non-nil if the message was good, nil otherwise
 ]]
+
+local lastClearTime = GetTime()
 me.commands = 
 {
 	-- clearing the raid threat
@@ -114,7 +116,15 @@ me.commands =
 		-- author must be officer
 		if me.officercheck(author, message) then
 			
+            if author == UnitName("player") then
+                author = "you"
+            end
+            
+			-- only show reset message once a second
+			if lastClearTime +1 < GetTime() then
 			mod.out.print(string.format(mod.string.get("print", "network", "threatreset"), author))
+				lastClearTime = GetTime()
+			end
 			
 			mod.table.resetraidthreat()
 			mod.table.clearraidtable()
@@ -128,7 +138,11 @@ me.commands =
 	["t"] = function(author, message, start)
 		
 		local value = tonumber(string.sub(message, start + 1))
-		if value == nil then return end
+		
+		-- check for validity
+		if value == nil then 
+			return
+		end
 	
 		mod.table.updateplayerthreat(author, value)
 		KLHTM_RequestRedraw("raid")

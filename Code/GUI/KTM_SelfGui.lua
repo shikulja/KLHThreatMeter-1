@@ -7,7 +7,7 @@ ThreatMeter. See also KTM_Gui.xml, KTM_Gui.lua.
 --]]
 
 local mod = klhtm
-local me = { }
+local me, _ = { }
 mod.guiself = me 
 
 -- The number of rows defined in New_Frame.xml

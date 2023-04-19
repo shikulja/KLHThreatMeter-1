@@ -551,7 +551,7 @@ end
 
 
 KLHTM_RedrawDebug = {0,0,0,0,0,0,0,0,0,0};
-_redrawindex = 1;
+local _redrawindex = 1;
 ------------------------------------------------------------------------------
 -- Redraws the data table contents, if needed. The redraw will only occur if:
 --
@@ -646,4 +646,57 @@ function KLHTM_Frame_OnDragStart()
 end
 function KLHTM_Frame_OnDragStop()
 	gui.frame:StopMovingOrSizing();
+end
+--------------------------------------------------
+--MOVEBUTTON
+--------------------------------------------------
+function KTM_MouseDown()
+
+if (arg1 == "RightButton") then
+		this.isMoving = true;
+	end
+end
+
+function KTM_MouseUp()
+	if (arg1 == "RightButton") then
+		this.isMoving = false;
+	end
+end
+
+function KTM_MoveButton()
+		if not KTM_Data then
+			KTM_Data = {
+				["Position"] = { 
+					["x"] = 0,
+					["y"] = -82,
+				},
+			};
+		else
+			this:ClearAllPoints();
+			this:SetPoint("CENTER", "Minimap", "CENTER", KTM_Data.Position.x, KTM_Data.Position.y);
+		end
+	if ( this.isMoving ) then
+
+	local mouseX, mouseY = GetCursorPosition();
+	local centerX, centerY = Minimap:GetCenter();
+	local scale = Minimap:GetEffectiveScale();
+	mouseX = mouseX / scale;
+	mouseY = mouseY / scale;
+	
+	local x = mouseX - centerX;
+	local y = mouseY - centerY;
+	local r = math.sqrt(x*x + y*y);
+	if (r>0) then
+		local radius = ((Minimap:GetRight()-Minimap:GetLeft())/2) + ((this:GetRight()-this:GetLeft())/2) - 4;
+		x = radius * x / r;
+		y = radius * y / r;
+
+		this:ClearAllPoints();
+		this:SetPoint("CENTER", "Minimap", "CENTER", x, y);
+
+		KTM_Data.Position.x = x;
+		KTM_Data.Position.y = y;
+	end
+
+	end
 end

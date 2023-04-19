@@ -15,7 +15,7 @@
 
 -- Add the module to the tree
 local mod = klhtm
-local me = {}
+local me, _ = {}
 mod.combat = me
 local lastSunderTime = 0
 

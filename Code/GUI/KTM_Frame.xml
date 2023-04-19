@@ -1128,6 +1128,62 @@
 		</Scripts>
 	</Frame>
 		
+<Button name="KTM_MiniMapButtonFrame" parent="Minimap" enablemouse="true" movable="true">
+		<Size>
+			<AbsDimension x="32" y="32"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="72" y="-66"/>
+			</Anchor>
+		</Anchors>	
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentBg" file="Interface\icons\Ability_Seal">
+					<Size>
+						<AbsDimension x="24" y="24"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset x="0" y="0"/>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentIcon" file="Interface\Minimap\MiniMap-TrackingBorder">
+					<Size>
+						<AbsDimension x="60" y="60"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER" relativeTo="$parentBg" relativePoint="CENTER">
+							<Offset x="12" y="-12"/>
+						</Anchor>
+					</Anchors>
+				</Texture>	             		
+			</Layer>
+			</Layers>
+			<Scripts>
+			<OnClick>
+             if KLHTM_windowsopened then KLHTM_SetVisible(false);KLHTM_windowsopened=nil;else KLHTM_SetVisible(true);KLHTM_windowsopened=true;end
+			</OnClick>
+		    <OnMouseDown>
+				KTM_MouseDown();
+		    </OnMouseDown>
+		    <OnMouseUp>
+				KTM_MouseUp();
+		    </OnMouseUp>
+			<OnEnter>
+			  GameTooltip:Show();
+			  GameTooltip:SetOwner(this, "ANCHOR_BOTTOMRIGHT");
+			  GameTooltip:SetText("KTM")
+			</OnEnter>
+			<OnLeave>
+			  GameTooltip:Hide();			  
+			</OnLeave>
+			</Scripts>
+			<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
+	 </Button>		
 	
 </Ui>
 
