@@ -2,10 +2,10 @@
 ## Title: KLHThreatMeter |cff1fff1fLaYt|r edition
 ## Author: Kenco@Perenolde, edited by Plask, eduted by LaYt
 ## Notes: A Threat Meter with sunders counter
-## Notes-ruRU: Измеритель угрозы
+## Notes-ruRU: РР·РјРµСЂРёС‚РµР»СЊ СѓРіСЂРѕР·С‹
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
-## Version: 17.39
+## Version: 17.39.242
 ## SavedVariablesPerCharacter: KLHTM_SavedVariables
 Code\KTM_Core.lua
 Code\Localisation\KTM_Localisation.lua

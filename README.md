@@ -7,6 +7,10 @@ Updated KLHThreatMeter for Everlook
 - added KTM_PetMod
 - some small fixes
 - added minimap button
+- Reverted Execute multiplier to 1
+by zelazrgn:
+- Onyxia knock away threat reduction is corrected to a 25% reduction
+- Small correction to thunderfury threat values
 
 17.38
 - added a fix for Essence of the Red by zelazrgn

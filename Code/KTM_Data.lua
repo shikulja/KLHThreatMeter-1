@@ -217,7 +217,7 @@ me.spells =
 	["thunderfury"] = 
 	{
 		class = "item",
-		threat = 241,
+		threat = 145 + 90,
 	},
 	["graceofearth"] = 
 	{
@@ -237,7 +237,7 @@ me.spells =
 	["execute"] = 
 	{	
 		class = "warrior",
-		multiplier = 1.25,
+		multiplier = 1, -- tested vmangos
 	},
 }
 
