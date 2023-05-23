@@ -358,6 +358,7 @@ klhtm.string.data["zhTW"] =
 				["rows"] = "最大可見列",
 				["scale"] = "對話框縮放",
 				["bottom"] = "隱藏底列",
+				["minimap"] = "显示小地图按钮",
 			},
 			["minvis"] = {
 				-- the names of minimised strings
@@ -385,6 +386,7 @@ klhtm.string.data["zhTW"] =
 			["aggro"] = "如果選取, 增加一個阻隔行顯示預估取得的仇恨值. 當設置主目標時, 這個預估值會更加精準.",
 			["rows"] = "最多有多少人會出現在團隊仇恨視窗列表中.",
 			["bottom"] = "選取此選項, 底部狀態列將被隱藏. 它顯示你的仇恨差距以及主要目標.",
+			["minimap"] = "左键单击以打开 KTM。\n按住 Shift 键并左键单击 KTM 选项。\n右键单击​​并拖动以移动此按钮。",
 		},
 	},
 	["print"] =

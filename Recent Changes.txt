@@ -1,3 +1,7 @@
+17.39.243
+- Reworked Minimap Button logic
+- Added option to hide minimap button
+
 17.39
 --> Added Pet Threat (KTM_PetMod)
 --> added minimap button

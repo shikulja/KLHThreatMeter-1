@@ -177,6 +177,9 @@ function KLHTM_LoadVariables()
 			options.buttonVis.min.clear = false;
 			options.buttonVis.max.clear = false;
 		end
+		if (options.minimap == nil) then
+			options.minimap = true;
+		end
 	else
 		if mod.out.checktrace("info", me, "savedvariables") then
 			mod.out.printtrace("Performing fresh install of KTM")
@@ -202,6 +205,7 @@ function KLHTM_CreateGuiTable()
 	gui.frame = KLHTM_Frame;
 	gui.topdiv = KLHTM_FrameTopDivider;
 	gui.bottomdiv = KLHTM_FrameBottomDivider;
+	gui.minimapButton = KTM_MiniMapButtonFrame;
 	
 	KLHTM_CreateTitleTable();
 	KLHTM_CreateRaidTable();
@@ -236,6 +240,7 @@ end
 function KLHTM_SetDefaultOptions()
 	
 	options.scale = KLHTM_Scale.default;
+	options.minimap = true;
 	
 	KLHTM_SetDefaultRaidOptions();
 	KLHTM_SetDefaultSelfOptions();
@@ -525,6 +530,13 @@ function KLHTM_UpdateFrame()
 		gui.title.string.long.frame:GetLeft();
 	end
 	
+	if options.minimap then
+		gui.minimapButton:Show()
+	else
+		gui.minimapButton:Hide()
+	end
+
+
 end
 
 
@@ -650,33 +662,28 @@ end
 --------------------------------------------------
 --MOVEBUTTON
 --------------------------------------------------
-function KTM_MouseDown()
-
-if (arg1 == "RightButton") then
-		this.isMoving = true;
-	end
-end
-
-function KTM_MouseUp()
-	if (arg1 == "RightButton") then
-		this.isMoving = false;
-	end
-end
-
-function KTM_MoveButton()
-		if not KTM_Data then
-			KTM_Data = {
-				["Position"] = { 
+do 
+	local loggedIn
+	if not loggedIn then
+		local f = CreateFrame("Frame")
+		f:SetScript("OnEvent", function()
+			if not options.Position then
+				options.Position = {
 					["x"] = 0,
 					["y"] = -82,
-				},
 			};
 		else
-			this:ClearAllPoints();
-			this:SetPoint("CENTER", "Minimap", "CENTER", KTM_Data.Position.x, KTM_Data.Position.y);
+				getglobal("KTM_MiniMapButtonFrame"):ClearAllPoints();
+				getglobal("KTM_MiniMapButtonFrame"):SetPoint("CENTER", "Minimap", "CENTER", options.Position.x, options.Position.y);
+			end
+			loggedIn = true
+			this:SetScript("OnEvent", nil)
+		end)
+		f:RegisterEvent("PLAYER_LOGIN")
+	end
 		end
-	if ( this.isMoving ) then
 
+function KTM_BeingDragged()
 	local mouseX, mouseY = GetCursorPosition();
 	local centerX, centerY = Minimap:GetCenter();
 	local scale = Minimap:GetEffectiveScale();
@@ -694,9 +701,31 @@ function KTM_MoveButton()
 		this:ClearAllPoints();
 		this:SetPoint("CENTER", "Minimap", "CENTER", x, y);
 
-		KTM_Data.Position.x = x;
-		KTM_Data.Position.y = y;
+		options.Position.x = x;
+		options.Position.y = y;
 	end
 
+	end
+function KTM_ShowTooltip()
+	if( not this.aldragme) then
+		GameTooltip:SetOwner(this, "ANCHOR_BOTTOMRIGHT");
+		GameTooltip:SetText("KTM")
+		GameTooltipTextLeft1:SetTextColor(1, 1, 1);
+		GameTooltip:AddLine(mod.string.get("optionsgui", "tooltips", "minimap"));
+		GameTooltip:Show();
+	end
+end
+
+function KTM_MinimapButtonClick()
+	if IsShiftKeyDown() then
+		KLHTM_ToggleOptionsGui();
+	else
+		if KLHTM_windowsopened then 
+			KLHTM_SetVisible(false);
+			KLHTM_windowsopened=nil;
+		else 
+			KLHTM_SetVisible(true);
+			KLHTM_windowsopened=true;
+		end
 	end
 end

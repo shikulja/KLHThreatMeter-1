@@ -306,6 +306,7 @@ klhtm.string.data["koKR"] =
 				["rows"] = "최대 행표시",
 				["scale"] = "프레임 크기",
 				["bottom"] = "하단바를 숨김",
+				["minimap"] = "미니맵 버튼 표시",
 			},
 			["minvis"] = {
 				-- the names of minimised strings
@@ -333,6 +334,7 @@ klhtm.string.data["koKR"] =
 			["aggro"] = "체크시, 위협한계치가 레이드뷰에 첨가됨. 주타겟이 설정되었을 시 가장 정확함.",
 			["rows"] = "레이드 화면에 보여지는 최대 플레이어수",
 			["bottom"] = "체크시, 위협차이와 주타겟을 보여주는 하단바가 숨겨짐.",
+			["minimap"] = "KTM을 열려면 왼쪽 클릭하세요.\nKTM 옵션을 보려면 Shift-왼쪽 클릭하세요.\n이 버튼을 이동하려면 마우스 오른쪽 버튼을 클릭하고 드래그하세요.",
 		},
 	},
 	["print"] =

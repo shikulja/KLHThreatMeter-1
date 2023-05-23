@@ -363,6 +363,17 @@
 						</Scripts>
 					</Slider>
 					
+				<CheckButton name="$parentMinimap" inherits="KLHTM_CheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parentScale" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="-15"/>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick> KLHTM_OptionsGeneral_OnClick("ShowMinimapButton"); </OnClick>
+						</Scripts>
+					</CheckButton>
+					
 				</Frames>
 			</Frame>
 			

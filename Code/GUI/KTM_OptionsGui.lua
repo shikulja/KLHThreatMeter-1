@@ -53,6 +53,10 @@ function KLHTM_CreateOptionsTable()
 			["text"] = KLHTM_OptionsFrameGeneralScaleText,
 			["value"] = KLHTM_OptionsFrameGeneralScaleValue,
 		},
+		["minimap"] = {
+			["frame"] = KLHTM_OptionsFrameGeneralMinimap,
+			["text"] = KLHTM_OptionsFrameGeneralMinimapText,
+		},
 		-- command button visibility when minimised
 		["minvishead"] = {
 			["frame"] = KLHTM_OptionsFrameGeneralMinimisedHeader,
@@ -274,6 +278,8 @@ function KLHTM_SetupOptionsGui()
 	gui.gen.scale.frame:SetValueStep(KLHTM_Scale.tick * 100);
 	gui.gen.scale.text:SetText(mod.string.get("optionsgui", "labels", "options", "scale"));
 	
+	gui.gen.minimap.text:SetText(mod.string.get("optionsgui", "labels", "options", "minimap"));
+
 	-- self frame
 	gui.self.colhead.text:SetText(mod.string.get("optionsgui", "labels", "headers", "columns"));
 	
@@ -372,6 +378,8 @@ function KLHTM_SyncOptionsGui()
 	gui.gen.scale.frame:SetScript("OnValueChanged", temp);
 	gui.gen.scale.value:SetText(options.scale * 100 .. "%");
 	
+	gui.gen.minimap.frame:SetChecked(options.minimap);
+
 	-- self frame
 	for index, column in gui.self.col do
 		column.frame:SetChecked(options.self.columnVis[index]);
@@ -530,6 +538,8 @@ function KLHTM_OptionsGeneral_OnClick(command)
 	elseif (command == "MaximisedClearThreat") then
 		options.buttonVis.max.clear = ToBoolean(gui.gen.maxvis.clear.frame:GetChecked());
 			
+	elseif (command == "ShowMinimapButton") then
+		options.minimap = ToBoolean(gui.gen.minimap.frame:GetChecked());		
 	else
 		if mod.out.checktrace("warning", me, "invalidargument") then
 			mod.out.printtrace(string.format("The argument '%s' to OptionsGeneral_OnClick is not recognised.", tostring(command)))

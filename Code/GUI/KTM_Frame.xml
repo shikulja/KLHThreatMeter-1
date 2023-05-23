@@ -1164,19 +1164,26 @@
 			</Layer>
 			</Layers>
 			<Scripts>
-			<OnClick>
-             if KLHTM_windowsopened then KLHTM_SetVisible(false);KLHTM_windowsopened=nil;else KLHTM_SetVisible(true);KLHTM_windowsopened=true;end
+			<OnLoad>
+					this:RegisterForDrag("RightButton");
+					this.aldragme = false;
+				</OnLoad>
+				<OnClick>
+					KTM_MinimapButtonClick()
 			</OnClick>
-		    <OnMouseDown>
-				KTM_MouseDown();
-		    </OnMouseDown>
-		    <OnMouseUp>
-				KTM_MouseUp();
-		    </OnMouseUp>
+		    <OnDragStart> 
+					this.aldragme = true;
+		    </OnDragStart> 
+				<OnDragStop>
+					this.aldragme = false;
+		    </OnDragStop>
+				<OnUpdate>
+					if (this.aldragme) then
+						KTM_BeingDragged();
+					end
+		    </OnUpdate>
 			<OnEnter>
-			  GameTooltip:Show();
-			  GameTooltip:SetOwner(this, "ANCHOR_BOTTOMRIGHT");
-			  GameTooltip:SetText("KTM")
+					KTM_ShowTooltip();
 			</OnEnter>
 			<OnLeave>
 			  GameTooltip:Hide();			  

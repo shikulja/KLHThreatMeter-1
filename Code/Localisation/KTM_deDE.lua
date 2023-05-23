@@ -335,6 +335,7 @@ klhtm.string.data["deDE"] =
 				["rows"] = "Sichtbare Reihen",
 				["scale"] = "Skalierung",
 				["bottom"] = "Unt. Leiste verstecken",
+				["minimap"] = "Schaltfläche Minikarte anzeigen",
 			},
 			["minvis"] = {
 				-- the names of minimised strings
@@ -362,6 +363,7 @@ klhtm.string.data["deDE"] =
 			["aggro"] = "Wenn dies aktiviert ist, wird eine Grenze in der Schlachtzugansicht angezeigt, bei der du vorrausichtlich Aggro ziehen wirst. Diese ist am genauesten, wenn ein Hauptziel gesetzt ist.",
 			["rows"] = "Die maximale Ansicht  der sichtbaren Spieler im Schlachtzugbedrohungsfenster.",
 			["bottom"] = "Wenn dies aktiviert ist, wird die untere Leiste versteckt. Diese zeigt das Bedrohungsdefizit und das Hauptziel an.",
+			["minimap"] = "Linksklick, um KTM zu öffnen.\n Sschalttaste-Linksklick für KTM-Optionen.\n Klicken und ziehen Sie mit der rechten Maustaste, um diese Schaltfläche zu verschieben.",
 		},
 	},
 	["print"] = 

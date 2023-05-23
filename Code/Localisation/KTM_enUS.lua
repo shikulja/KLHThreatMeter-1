@@ -350,6 +350,7 @@ klhtm.string.data["enUS"] =
 				["rows"] = "Max visible rows",
 				["scale"] = "Frame scale",
 				["bottom"] = "Hide bottom bar",
+				["minimap"] = "Show Minimap Button",
 			},
 			["minvis"] = {
 				-- the names of minimised strings
@@ -378,6 +379,7 @@ klhtm.string.data["enUS"] =
 			["aggro"] = "If checked, a player is added to the raid display showing the estimated threat barrier. It is most accurate when a mastertarget is set.",
 			["rows"] = "The maximum number of players visible on the raid threat window.",
 			["bottom"] = "If checked, the bottom bar will be hidden. It shows your threat defecit and the master target.",
+			["minimap"] = "Left-click to open KTM.\nShift-Left-click for KTM options.\nRight-click and drag to move this button.",
 		},
 	},
 	["print"] = 

@@ -341,6 +341,7 @@ klhtm.string.data["frFR"] =
 				["rows"] = "Nb de col. visibles",
 				["scale"] = "Echelle de la fen\195\170tre",
 				["bottom"] = "Cacher la barre du bas",
+				["minimap"] = "Afficher le Bouton de la Mini-carte",
 			},
 			["minvis"] = {
 				-- the names of minimised strings
@@ -368,6 +369,7 @@ klhtm.string.data["frFR"] =
 			["aggro"] = "Si coch\195\169, un joueur est ajouté à l'affichage de raid montrant le seuil estim\195\169 de menace. Ceci est plus pr\195\169cis quand une cible principale est positionn\195\169e.",
 			["rows"] = "Le nombre maximum de joueurs visible sur la fen\195\170tre de menace du raid.",
 			["bottom"] = "Si coch\195\169,la barre du bas sera cach\195\169. Elle montre votre d\195\169ficite de menace et la cible principale.",
+			["minimap"] = "Cliquez avec le bouton gauche pour ouvrir KTM.\nMaj-clic gauche pour les options KTM.\nCliquez avec le bouton droit et faites glisser pour déplacer ce bouton.",
 		},
 	},
 	["print"] =

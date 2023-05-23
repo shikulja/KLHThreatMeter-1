@@ -3,6 +3,10 @@
 Updated KLHThreatMeter for Everlook
 
 # Changes
+17.39.243
+- Reworked Minimap Button logic
+- Added option to hide minimap button
+
 17.39
 - added KTM_PetMod
 - some small fixes
