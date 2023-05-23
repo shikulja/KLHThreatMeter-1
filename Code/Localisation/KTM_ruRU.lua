@@ -341,7 +341,7 @@ klhtm.string.data["ruRU"] =
 				["dam"] = "Урон",
 				["threat"] = "Угроза",
 				["pc"] = "% угрозы",
-				["sunder"] = "Раскол",
+				["sunder"] = "Раскол брони",
 			},
 			["options"] = {
 				-- miscelaneous option names
