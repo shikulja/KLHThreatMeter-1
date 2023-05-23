@@ -225,7 +225,7 @@ klhtm.string.data["ruRU"] =
 				["name"] = "Имя",
 				["threat"] = "Угроза",
 				["pc"] = "%Макс",			-- your threat as a percentage of the #1 player's threat
-				["sunder"] = "Su",			-- your threat as a percentage of the #1 player's threat
+				["sunder"] = "Рс",			-- your threat as a percentage of the #1 player's threat
 			},
 			["stringshort"] = {
 				-- tooltip titles for the bottom bar strings
