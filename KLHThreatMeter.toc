@@ -7,6 +7,7 @@
 ## LoadOnDemand: 0
 ## Version: 17.39.243
 ## SavedVariablesPerCharacter: KLHTM_SavedVariables
+
 Code\KTM_Core.lua
 Code\Localisation\KTM_Localisation.lua
 Code\Localisation\KTM_enUS.lua
@@ -40,3 +41,4 @@ Code\GUI\KTM_TitleGui.lua
 Code\GUI\KTM_OptionsGui.lua
 Code\GUI\KTM_Frame.xml
 Code\GUI\KTM_OptionsFrame.xml
+pfUI.lua
